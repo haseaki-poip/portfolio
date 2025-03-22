@@ -1,0 +1,73 @@
+.profile {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+
+  &__partition_left {
+    width: 40%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+  }
+
+  &__partition_right {
+    width: 60%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+
+  &__image_wrapper {
+    width: 256px;
+    height: 256px;
+    position: relative;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 80%;
+  }
+
+  &__name {
+    font-size: 1.25rem;
+    font-weight: 600;
+
+    & > span {
+      margin-left: 1rem;
+    }
+  }
+
+  &__job {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 24px;
+
+    &__partition_left {
+      width: 100%;
+      justify-content: center;
+    }
+
+    &__partition_right {
+      width: 100%;
+      justify-content: center;
+    }
+
+    &__image_wrapper {
+      width: 200px;
+      height: 200px;
+    }
+
+    &__text {
+      max-width: 500px;
+      width: 70%;
+      align-items: center;
+    }
+  }
+}

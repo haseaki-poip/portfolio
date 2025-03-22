@@ -1,0 +1,14 @@
+@import "@/styles/variables.scss";
+
+.title {
+  width: fit-content;
+  margin: auto;
+  font-size: 2rem;
+  font-weight: 400;
+  padding-bottom: 8px;
+  border-bottom: 3px solid $border-color;
+}
+
+.title_wrapper {
+  width: 100%;
+}

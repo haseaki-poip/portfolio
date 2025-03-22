@@ -1,0 +1,21 @@
+.grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 56px 20px;
+
+  &--small {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  &--large {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
+
+  &--centered {
+    & > li {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

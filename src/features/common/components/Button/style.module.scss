@@ -1,0 +1,25 @@
+@import "@/styles/variables.scss";
+
+.button {
+  border-radius: 4px;
+  padding: 0.75rem 3rem;
+  background-color: $button-background-main-color;
+  color: $button-text-main-color;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 1rem;
+
+  &--rounded_full {
+    border-radius: 9999px;
+  }
+
+  &--small {
+    font-size: 0.75rem;
+    padding: 0.5rem 2rem;
+  }
+
+  &--large {
+    font-size: 1.25rem;
+    padding: 0.75rem 3rem;
+  }
+}
