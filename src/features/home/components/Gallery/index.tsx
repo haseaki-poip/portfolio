@@ -70,7 +70,7 @@ const Gallery = () => {
     <>
       <div className={styles.masonry}>
         {(sortedImageDatas.length > 0 || loading) && (
-          <ResponsiveMasonry columnsCountBreakPoints={{ 0: 2, 768: 3 }}>
+          <ResponsiveMasonry columnsCountBreakPoints={{ 0: 2, 1024: 4 }}>
             <Masonry>
               {sortedImageDatas.map((imageData, index) => (
                 <div

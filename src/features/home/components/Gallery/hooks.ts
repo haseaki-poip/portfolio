@@ -3,17 +3,17 @@ import { useState } from "react";
 
 export const useImage = () => {
   const [sortedImageDatas, setSortedImageDatas] = useState<ImageData[]>([]);
-  const [totalHeightList, setTotalHeightList] = useState(Array(6).fill(0));
+  const [totalHeightList, setTotalHeightList] = useState(Array(4).fill(0));
 
   const addImageDatas = (addedImageDatas: ImageData[]) => {
     const rows: ImageData[][] = [];
     const heights = [...totalHeightList];
 
     // imageDatasを6個ずつ処理する
-    for (let i = 0; i < addedImageDatas.length; i += 6) {
+    for (let i = 0; i < addedImageDatas.length; i += 4) {
       const chunk = addedImageDatas.slice(
         i,
-        Math.min(i + 6, addedImageDatas.length)
+        Math.min(i + 4, addedImageDatas.length)
       );
       const chunkSize = chunk.length;
 
