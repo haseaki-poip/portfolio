@@ -21,13 +21,13 @@ const Works = async () => {
   const { works } = worksResult;
 
   return (
-    // TODO: Gridの中身がliでくる前提で作られていながらそれを担保していないので直したい
     <Grid centered={true}>
       {works.map((work, index) => (
-        <li key={index}>
+        <>
           {/* TODO: Cardのpropsの型指定がいけてないから直したい */}
           {work.link ? (
             <Card
+              key={index}
               imageUrl={work.imageUrl}
               imageAlt={work.title}
               title={work.title}
@@ -38,13 +38,14 @@ const Works = async () => {
             />
           ) : (
             <Card
+              key={index}
               imageUrl={work.imageUrl}
               imageAlt={work.title}
               title={work.title}
               description={work.description}
             />
           )}
-        </li>
+        </>
       ))}
     </Grid>
   );
