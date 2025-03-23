@@ -22,7 +22,10 @@ export default function Home() {
       <section
         className={`${styles.section} ${styles["section--padding_horizontal"]}`}
       >
-        <SectionTitle title="Gallery" />
+        <SectionTitle
+          title="Gallery"
+          description="ディズニーにインパした時の写真を都度共有していきます。"
+        />
         <Gallery />
       </section>
     </>

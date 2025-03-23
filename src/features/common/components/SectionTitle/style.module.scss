@@ -1,5 +1,9 @@
 @import "@/styles/variables.scss";
 
+.container {
+  width: 100%;
+}
+
 .title {
   width: fit-content;
   margin: auto;
@@ -9,6 +13,11 @@
   border-bottom: 3px solid $border-color;
 }
 
-.title_wrapper {
-  width: 100%;
+.description {
+  width: 80%;
+  max-width: 500px;
+  margin: 16px auto 0;
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-align: center;
 }
