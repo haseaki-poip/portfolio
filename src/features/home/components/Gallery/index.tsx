@@ -27,7 +27,7 @@ const Gallery = () => {
       },
       {
         root: null,
-        rootMargin: "100px", // 少し余裕を持たせる
+        rootMargin: "8px",
         threshold: 0.1,
       }
     );
