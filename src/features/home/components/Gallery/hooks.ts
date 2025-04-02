@@ -9,7 +9,7 @@ export const useImage = () => {
     const rows: ImageData[][] = [];
     const heights = [...totalHeightList];
 
-    // imageDatasを6個ずつ処理する
+    // imageDatasを4個ずつ処理する
     for (let i = 0; i < addedImageDatas.length; i += 4) {
       const chunk = addedImageDatas.slice(
         i,
