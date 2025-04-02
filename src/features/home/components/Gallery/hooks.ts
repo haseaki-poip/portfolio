@@ -3,11 +3,13 @@ import { useState } from "react";
 
 export const useImage = () => {
   const [sortedImageDatas, setSortedImageDatas] = useState<ImageData[]>([]);
-  const [totalHeightList, setTotalHeightList] = useState(Array(4).fill(0));
+  const [totalVerticalRatioList, setTotalVerticalRatioList] = useState(
+    Array(4).fill(0)
+  );
 
   const addImageDatas = (addedImageDatas: ImageData[]) => {
     const rows: ImageData[][] = [];
-    const heights = [...totalHeightList];
+    const verticalRatios = [...totalVerticalRatioList];
 
     // imageDatasを4個ずつ処理する
     for (let i = 0; i < addedImageDatas.length; i += 4) {
@@ -17,22 +19,24 @@ export const useImage = () => {
       );
       const chunkSize = chunk.length;
 
-      // 高さの低い列インデックスを取得（昇順）
+      // 累計高幅比の小さい列インデックスを取得（昇順）
       // ただし、chunkSizeの数だけ使用する
-      const columnIndexes = heights
+      const columnIndexes = verticalRatios
         .slice(0, chunkSize) // chunkSizeの数だけ取得
-        .map((height, index) => ({ height, index }))
-        .sort((a, b) => a.height - b.height)
+        .map((verticalRatio, index) => ({ verticalRatio, index }))
+        .sort((a, b) => a.verticalRatio - b.verticalRatio)
         .map((item) => item.index);
 
-      // 画像を高さの高い順に並べ替え
-      const sortedChunk = [...chunk].sort((a, b) => b.height - a.height);
+      // 高幅比の大きい順に並べ替え
+      const sortedChunk = [...chunk].sort(
+        (a, b) => b.height / b.width - a.height / a.width
+      );
 
       const row: ImageData[] = new Array(chunkSize);
       sortedChunk.forEach((imageData, index) => {
         const columnIndex = columnIndexes[index];
         row[columnIndex] = imageData;
-        heights[columnIndex] += imageData.height;
+        verticalRatios[columnIndex] += imageData.height / imageData.width;
       });
       rows.push(row);
     }
@@ -40,7 +44,7 @@ export const useImage = () => {
     // 各列の画像を1つの配列に結合
     const result = rows.flat();
     setSortedImageDatas([...sortedImageDatas, ...result]);
-    setTotalHeightList(heights);
+    setTotalVerticalRatioList(verticalRatios);
   };
 
   return { sortedImageDatas, addImageDatas };
