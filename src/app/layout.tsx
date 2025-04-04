@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.scss";
 import "ress";
 
@@ -21,6 +22,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={myfont.className}>{children}</body>
+      <Analytics />
     </html>
   );
 }
