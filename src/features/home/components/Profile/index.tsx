@@ -16,9 +16,9 @@ const Profile = () => {
         </figure>
       </div>
       <div className={styles.profile__partition_right}>
-        <div className={styles.profile__text}>
+        <div className={`${styles.profile__text} ${styles["hp__mx--sp"]}`}>
           <p className={styles.profile__name}>
-            長谷川 祥士<span>Hasegawa Akito</span>
+            <span>長谷川 祥士</span>Hasegawa Akito
           </p>
           <p className={styles.profile__job}>フロントエンドエンジニア</p>
           <p className={styles.profile__introduction}>

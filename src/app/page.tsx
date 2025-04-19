@@ -9,7 +9,9 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <section className={styles.section}>
+      <section
+        className={`${styles.section} ${styles["section--padding_horizontal"]}`}
+      >
         <SectionTitle title="Profile" />
         <Profile />
       </section>
