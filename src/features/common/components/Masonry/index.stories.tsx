@@ -3,6 +3,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import Masonry from "./index";
 
 const meta: Meta<typeof Masonry> = {
+  title: "common/Masonry",
   component: Masonry,
 };
 export default meta;
