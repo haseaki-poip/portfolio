@@ -6,9 +6,11 @@ import styles from "./style.module.scss";
 import { ResponseImageResult } from "@/app/api/photos/route";
 import { useImage } from "./hooks";
 import Masonry from "@/features/common/components/Masonry";
+import Error from "./Error";
 const Gallery = () => {
   const observerRef = useRef(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const [start, setStart] = useState(1);
   const [finishFetch, setFinishFetch] = useState(false);
   const { sortedImageDatas, addImageDatas } = useImage();
@@ -61,8 +63,15 @@ const Gallery = () => {
       })
       .catch(() => {
         setLoading(false);
+        setError(true);
         setFinishFetch(true);
       });
+  };
+
+  const retry = () => {
+    setError(false);
+    setFinishFetch(false);
+    loadMoreImages();
   };
 
   return (
@@ -101,6 +110,14 @@ const Gallery = () => {
                 ></div>
               ))}
           </Masonry>
+        )}
+        {error && (
+          <Error
+            {...(sortedImageDatas.length > 0 && {
+              className: styles["hp__mt--32px"],
+            })}
+            retry={retry}
+          />
         )}
       </div>
 
