@@ -7,6 +7,7 @@ import { ResponseImageResult } from "@/app/api/photos/route";
 import { useImage } from "./hooks";
 import Masonry from "@/features/common/components/Masonry";
 import Error from "./Error";
+import LightBox from "./LightBox";
 const Gallery = () => {
   const observerRef = useRef(null);
   const [loading, setLoading] = useState(false);
@@ -14,6 +15,7 @@ const Gallery = () => {
   const [start, setStart] = useState(1);
   const [finishFetch, setFinishFetch] = useState(false);
   const { sortedImageDatas, addImageDatas } = useImage();
+  const [selectedIndex, setSelectedIndex] = useState<number>();
 
   useEffect(() => {
     if (finishFetch) return;
@@ -86,6 +88,7 @@ const Gallery = () => {
                 style={{
                   aspectRatio: `${imageData.width}/${imageData.height}`,
                 }}
+                onClick={() => setSelectedIndex(index)}
               >
                 <div className={styles.masonry__image_wrapper}>
                   <Image
@@ -122,6 +125,14 @@ const Gallery = () => {
       </div>
 
       <div ref={observerRef} style={{ width: "100%", height: "24px" }}></div>
+
+      {selectedIndex !== undefined && (
+        <LightBox
+          isOpen={selectedIndex !== undefined}
+          imageUrl={sortedImageDatas[selectedIndex].imageUrl}
+          close={() => setSelectedIndex(undefined)}
+        />
+      )}
     </>
   );
 };
