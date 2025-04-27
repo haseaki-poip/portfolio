@@ -128,8 +128,7 @@ const Gallery = () => {
 
       {selectedIndex !== undefined && (
         <LightBox
-          isOpen={selectedIndex !== undefined}
-          imageUrl={sortedImageDatas[selectedIndex].imageUrl}
+          imageData={sortedImageDatas[selectedIndex]}
           close={() => setSelectedIndex(undefined)}
         />
       )}
