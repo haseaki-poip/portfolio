@@ -20,9 +20,9 @@ const Profile = () => {
           <p className={styles.profile__name}>
             <span>長谷川 祥士</span>Hasegawa Akito
           </p>
-          <p className={styles.profile__job}>フロントエンドエンジニア</p>
+          <p className={styles.profile__job}>企画・エンジニア</p>
           <p className={styles.profile__introduction}>
-            東京のIT企業でエンジニアとして働いており、主に自社サービスのFEとBFFを担当。
+            東京のIT企業で働いており、主に自社サービスの企画とエンジニア(FE・BFF)を担当。
             <br></br>
             趣味はディズニーと野球観戦、ハッカソンなどでのプロダクト開発。
           </p>
